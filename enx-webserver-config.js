@@ -1,9 +1,15 @@
-var webpack = require('webpack');
+/**
+ * @file config enx-webserver
+ * @author luwenlong
+ */
 var path = require('path');
+var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common', 'common.js');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var port = 3000;
 
-module.exports = {
+var config = {
     devtool: 'eval',
     entry: {
         index: [
@@ -57,3 +63,19 @@ module.exports = {
         new ExtractTextPlugin('[name].css'),
     ]
 };
+
+new WebpackDevServer(
+    webpack(config),
+    {
+        publicPath: config.output.publicPath,
+        hot: true,
+        historyApiFallback: true,
+        stats: {colors: true}
+    }
+).listen(port, 'localhost', function (err) {
+    if (err) {
+        console.log(err);
+    }
+
+    console.log('Listening at localhost: ' + port);
+});

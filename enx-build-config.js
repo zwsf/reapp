@@ -1,10 +1,15 @@
-var webpack = require('webpack');
+/**
+ * @file config enx-build
+ * @author luwenlong
+ */
+
 var path = require('path');
+var webpack = require('webpack');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common', 'common.js');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+var config = {
     devtool: 'eval',
     entry: {
         index: [

@@ -4,8 +4,8 @@
   "description": "在前端进行react redux rr等技术的应用",
   "repository": "browser react project",
   "scripts": {
-    "start": "node server.js",
-    "build": " rm -rf asset && webpack --config webpack.config.pro.js -p"
+    "start": "node enx-webserver-config.js",
+    "build": " rm -rf asset && webpack --config enx-build-config.js -p"
   },
   "keywords": [
     "react",
