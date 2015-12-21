@@ -13,7 +13,7 @@ var config = {
     devtool: 'eval',
     entry: {
         index: [
-            'webpack-dev-server/client?http://127.0.0.1:3000',
+            'webpack-dev-server/client?http://127.0.0.1:' + port,
             'webpack/hot/only-dev-server',
             './src/index/main.js'
         ],

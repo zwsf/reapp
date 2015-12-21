@@ -9,11 +9,21 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common', 'common.js
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var config = {
+var port = 3000;
+var exclude = [
+    '.git',
+    '*.bak',
+    '*.swp',
+    '*.swo',
+    '.gitignore',
+    'node_modules'
+];
+
+module.exports = {
     devtool: 'eval',
     entry: {
         index: [
-            'webpack-dev-server/client?http://127.0.0.1:3000',
+            'webpack-dev-server/client?http://127.0.0.1:' + port,
             'webpack/hot/only-dev-server',
             './src/index/main.js'
         ],
@@ -71,5 +81,8 @@ var config = {
             hash: true,
             template: 'tpl/search.html',
         })
-    ]
+    ],
+    port: port,
+    exclude: exclude,
+    documentRoot: __dirname,
 };

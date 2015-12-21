@@ -5,7 +5,7 @@
   "repository": "browser react project",
   "scripts": {
     "start": "node enx-webserver-config.js",
-    "build": " rm -rf asset && webpack --config enx-build-config.js -p"
+    "build": "rm -rf asset tpl && node build.js && webpack --config enx-build-config.js -p && rm -rf tpl"
   },
   "keywords": [
     "react",
@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "history": "^1.13.1",
+    "mkdirp": "^0.5.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.1",
