@@ -5,7 +5,7 @@
   "repository": "browser react project",
   "scripts": {
     "start": "node enx-webserver-config.js",
-    "build": "rm -rf asset tpl && node build.js && webpack --config enx-build-config.js -p && rm -rf tpl"
+    "build": "node build.js"
   },
   "keywords": [
     "react",
